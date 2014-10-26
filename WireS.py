@@ -51,7 +51,6 @@ class WireframeRender(bpy.types.Operator):
                 if current_object.layers[i] is True and current_object.layers[i] == l:
                     if current_object.type == "MESH" and current_object.hide is False and current_object.hide_render is False:
                         bpy.context.scene.objects.active = current_object
-                        print(current_object.name)
                         self.bl_arr.append(current_object)
                         bpy.ops.object.editmode_toggle()
                         bpy.ops.mesh.select_all(action='SELECT')
