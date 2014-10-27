@@ -14,14 +14,22 @@ from bpy.app.handlers import persistent
 
 @persistent
 def onrenderfinished(scene):
+    sceneupdateposthadler = bpy.app.handlers.scene_update_post
+    if onsceneupdatepost not in sceneupdateposthadler:
+        sceneupdateposthadler.append(onsceneupdatepost)
+    return {'FINISHED'}
+
+
+@persistent
+def onsceneupdatepost(scene):
+    bpy.app.handlers.scene_update_post.remove(onsceneupdatepost)
     current_active = scene.objects.active
     for elem in WireframeRender.bl_arr:
         bpy.context.scene.objects.active = elem
-        # нужно очищать ребра, но вылетает с ошибкой
-#        bpy.ops.object.mode_set(mode='EDIT')
-#        bpy.ops.mesh.select_all(action='SELECT')
-#        bpy.ops.mesh.mark_freestyle_edge(clear=True)
-#        bpy.ops.object.mode_set(mode='OBJECT')
+        bpy.ops.object.mode_set(mode='EDIT')
+        bpy.ops.mesh.select_all(action='SELECT')
+        bpy.ops.mesh.mark_freestyle_edge(clear=True)
+        bpy.ops.object.mode_set(mode='OBJECT')
     bpy.context.scene.objects.active = current_active
     layers = bpy.context.scene.render.layers
     for layer in layers:
