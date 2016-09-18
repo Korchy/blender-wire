@@ -7,9 +7,7 @@ Installation
 
 User Preferences - Addons - Install from file
     
-    WireS.py - Shows render process
-    or
-    WireH.py - Hide render process
+    WireS.py
 
 ====================================================================================
 Usage
