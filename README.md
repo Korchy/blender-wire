@@ -7,7 +7,7 @@ Installation
 
 User Preferences - Addons - Install from file
     
-    WireS.py
+    __init__.py
 
 ====================================================================================
 Usage
