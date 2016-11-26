@@ -5,7 +5,13 @@
 
 bl_info = {
     "name": "WireS",
-    "category": "Render",
+    'category': 'Render',
+    'author': 'Nikita Akimov',
+    'version': (0, 0, 1),
+    'blender': (2, 77, 0),
+    'wiki_url': 'http://b3d.interplanety.ru/addon-wire/',
+    'tracker_url': 'http://b3d.interplanety.ru/addon-wire/',
+    'description': 'Allows render with wireframe'
 }
 
 import bpy
