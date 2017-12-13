@@ -1,25 +1,19 @@
-Wire
-===============================================================================
-Blender - rendering in cycles with wireframe.
+# Wire
 
-===============================================================================
-Tested with Blender versions:
+Blender add-on for easy wireframe render.
+
+**Tested with Blender versions:**
 
 2.78, 2.79
 
-===============================================================================
-Installation
+**Installation**
 
-User Preferences - Addons - Install from file
+User Preferences - Addons - Install Add-on from File
     
-    __init__.py
-
-===============================================================================
-Usage
+**Usage**
 
 Ctrl + Shift + F12 in 3D view window
 
-===============================================================================
-Result
+**Result**
 
 <img src="http://i.imgur.com/h1GQgLH.jpg" title="source: imgur.com">

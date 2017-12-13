@@ -1,6 +1,5 @@
-# ---------------------------------------------------------------------------------------------------------------------
-# Аддон для рендера в режиме сетки (wireframe) в cycles с использованием freestyle
-# ---------------------------------------------------------------------------------------------------------------------
+# Nikita Akimov
+# interplanety@interplanety.org
 
 bl_info = {
     "name": "Wire",
@@ -8,8 +7,8 @@ bl_info = {
     'author': 'Nikita Akimov',
     'version': (0, 0, 1),
     'blender': (2, 78, 0),
-    'wiki_url': 'http://b3d.interplanety.ru/addon-wire/',
-    'tracker_url': 'http://b3d.interplanety.ru/addon-wire/',
+    'wiki_url': 'https://b3d.interplanety.org/en/blender-add-on-wire/',
+    'tracker_url': 'https://b3d.interplanety.org/en/blender-add-on-wire/',
     'description': 'Allows render with wireframe'
 }
 
@@ -95,6 +94,7 @@ def unregister():
     for km, kmi in addon_keymaps:
         km.keymap_items.remove(kmi)
     addon_keymaps.clear()
+
 
 if __name__ == "__main__":
     register()
