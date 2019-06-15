@@ -1,6 +1,10 @@
 # Nikita Akimov
 # interplanety@interplanety.org
 
+from .addon import Addon
+import bpy
+from bpy.app.handlers import persistent
+
 bl_info = {
     "name": "Wire",
     'category': 'Render',
@@ -11,9 +15,6 @@ bl_info = {
     'tracker_url': 'https://b3d.interplanety.org/en/blender-add-on-wire/',
     'description': 'Allows render with wireframe'
 }
-
-import bpy
-from bpy.app.handlers import persistent
 
 
 @persistent
@@ -78,21 +79,26 @@ class WireframeRender(bpy.types.Operator):
         bpy.ops.render.render('INVOKE_DEFAULT')
         return {'FINISHED'}
 
+
 addon_keymaps = []
 
 
 def register():
-    bpy.utils.register_class(WireframeRender)
-    wm = bpy.context.window_manager
-    km = wm.keyconfigs.addon.keymaps.new(name='Object Mode', space_type='EMPTY')
-    kmi = km.keymap_items.new(WireframeRender.bl_idname, 'F12', 'PRESS', ctrl=True, shift=True)
-    addon_keymaps.append((km, kmi))
+    if not Addon.dev_mode():
+        bpy.utils.register_class(WireframeRender)
+        wm = bpy.context.window_manager
+        km = wm.keyconfigs.addon.keymaps.new(name='Object Mode', space_type='EMPTY')
+        kmi = km.keymap_items.new(WireframeRender.bl_idname, 'F12', 'PRESS', ctrl=True, shift=True)
+        addon_keymaps.append((km, kmi))
+    else:
+        print('It seems you are trying to use the dev version of the ' + bl_info['name'] + ' add-on. It may work not properly. Please download and use the release version!')
 
 
 def unregister():
-    bpy.utils.unregister_class(WireframeRender)
-    for km, kmi in addon_keymaps:
-        km.keymap_items.remove(kmi)
+    if not Addon.dev_mode():
+        bpy.utils.unregister_class(WireframeRender)
+        for km, kmi in addon_keymaps:
+            km.keymap_items.remove(kmi)
     addon_keymaps.clear()
 
 
