@@ -67,10 +67,9 @@ class Wire:
         cls._backup['var']['file_format'] = [context.scene.render.image_settings, copy(context.scene.render.image_settings.file_format)]
         for obj in bpy.data.objects:
             if context.preferences.addons[__package__].preferences.use_optimal_display:
-                if 'Subdivision' in obj.modifiers:
-                    for modifier in obj.modifiers:
-                        if modifier.name == 'Subdivision':
-                            cls._backup['subdivision_modifiers'].append([modifier, copy(modifier.show_only_control_edges)])
+                for modifier in obj.modifiers:
+                    if modifier.type == 'SUBSURF':
+                        cls._backup['subdivision_modifiers'].append([modifier, copy(modifier.show_only_control_edges)])
             if obj.select_get():
                 cls._backup['selection'].append(obj)
         if context.space_data.region_3d.view_perspective != 'CAMERA':
@@ -106,10 +105,9 @@ class Wire:
         context.scene.render.film_transparent = False
         for obj in bpy.data.objects:
             if context.preferences.addons[__package__].preferences.use_optimal_display:
-                if 'Subdivision' in obj.modifiers:
-                    for modifier in obj.modifiers:
-                        if modifier.name == 'Subdivision':
-                            modifier.show_only_control_edges = True
+                for modifier in obj.modifiers:
+                    if modifier.type == 'SUBSURF':
+                        modifier.show_only_control_edges = True
             obj.select_set(False)
         context.space_data.shading.type = 'SOLID'
         context.space_data.shading.light = 'FLAT'
