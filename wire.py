@@ -26,7 +26,7 @@ class Wire:
         cls._backup_settings(context=context)
         cls._configure_scene_for_wireframe_render(context=context)
         bpy.ops.render.opengl()     # render wireframe mask
-        wireframe_mask_file = os.path.join(tempfile.tempdir, cls._temp_mask_file_name)
+        wireframe_mask_file = os.path.join(tempfile.gettempdir(), cls._temp_mask_file_name)
         image = bpy.data.images['Render Result']
         image.save_render(filepath=wireframe_mask_file)
         if cls._temp_mask_file_name in bpy.data.images:
@@ -183,7 +183,7 @@ class Wire:
             # group nodes
             image_node = group_node_tree.nodes.new(type='CompositorNodeImage')
             # image_node.image = wireframe_mask_image
-            image_node.image = bpy.data.images['wireframe_mask.png']
+            image_node.image = bpy.data.images[cls._temp_mask_file_name]
             image_node.location = (-600.0, 500.0)
             alpha_over_node_1 = group_node_tree.nodes.new(type='CompositorNodeAlphaOver')
             alpha_over_node_1.location = (-400.0, 200.0)
