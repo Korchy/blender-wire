@@ -1,26 +1,27 @@
 # Wire
 
-Blender add-on for easy wireframe render.
+"Wire" is the Blender add-on for quick and easy creation of wireframe renders.
 
-**Blender versions:**
+<img src="https://b3d.interplanety.org/wp-content/upload_content/2019/11/preview_01_670x335-400x200.jpg">
 
-2.80, 2.81
-
-
-**Installation**
-
+Installation
+-
 User Preferences - Addons - Install Add-on from File
     
-**Usage**
-
-- render your image
-- press "Add wireframe to render" button in the "wire" tab
-
-**Result**
-
-<img src="http://i.imgur.com/h1GQgLH.jpg" title="source: imgur.com">
+Usage
 -
+- Render main image (f12)
+- In the “3D Viewport” window in the “Wire” panel press the “Add wireframe to render” button
+- To make wireframe more contrast you can regulate its color in the “Wireframe color” picker.
+- If the “Use optimal display” checkbox is on, wireframe renders in an optimal mode. Off – render full meshes wireframe.
 
-**For Blender 2.7x version:**
+<img src="https://b3d.interplanety.org/wp-content/upload_content/2019/11/preview_03_670x335-400x200.jpg">
+
+Blender versions:
+-
+2.80, 2.81
+
+For Blender 2.7x version:
+-
 
 https://github.com/Korchy/blender-wire/releases/tag/v0.0.1

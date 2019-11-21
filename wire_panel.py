@@ -15,7 +15,7 @@ class WIRE_PT_panel(Panel):
     def draw(self, context):
         layout = self.layout
         layout.operator('wire.main', icon='RESTRICT_RENDER_OFF', text='Add wireframe to render')
-        layout.prop(context.preferences.addons[__package__].preferences, 'wire_color')
+        layout.prop(context.preferences.addons[__package__].preferences, 'wire_color', text='Wireframe color')
         layout.prop(context.preferences.addons[__package__].preferences, 'use_optimal_display', text='Optimal display')
         split = layout.split(factor=0.5)
         col1 = split.column()
