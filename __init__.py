@@ -11,7 +11,7 @@ bl_info = {
     'name': 'wire',
     'category': 'Render',
     'author': 'Nikita Akimov',
-    'version': (1, 0, 0),
+    'version': (1, 1, 0),
     'blender': (2, 80, 0),
     'location': 'N-panel - Wire tab',
     'wiki_url': 'https://b3d.interplanety.org/en/blender-add-on-wire/',

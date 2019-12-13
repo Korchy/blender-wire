@@ -30,6 +30,8 @@ class Wire:
         image = bpy.data.images['Render Result']
         image.save_render(filepath=wireframe_mask_file)
         if cls._temp_mask_file_name in bpy.data.images:
+            if not os.path.exists(bpy.data.images[cls._temp_mask_file_name].filepath):
+                bpy.data.images[cls._temp_mask_file_name].filepath = wireframe_mask_file
             bpy.data.images[cls._temp_mask_file_name].reload()
         else:
             bpy.data.images.load(filepath=wireframe_mask_file, check_existing=True)
@@ -65,6 +67,7 @@ class Wire:
         cls._backup['var']['show_object_origins'] = [context.space_data.overlay, copy(context.space_data.overlay.show_object_origins)]
         cls._backup['var']['show_wireframes'] = [context.space_data.overlay, copy(context.space_data.overlay.show_wireframes)]
         cls._backup['var']['file_format'] = [context.scene.render.image_settings, copy(context.scene.render.image_settings.file_format)]
+        cls._backup['var']['view_transform'] = [context.scene.view_settings, copy(context.scene.view_settings.view_transform)]
         for obj in bpy.data.objects:
             if context.preferences.addons[__package__].preferences.use_optimal_display:
                 for modifier in obj.modifiers:
@@ -134,6 +137,7 @@ class Wire:
             bpy.ops.view3d.view_camera()
         bpy.data.images['Render Result'].render_slots.active_index = 1  # render to slot 2
         context.scene.render.image_settings.file_format = 'PNG'
+        context.scene.view_settings.view_transform = 'Standard'
 
     @classmethod
     def _composite_wireframe(cls, context):
