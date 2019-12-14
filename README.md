@@ -21,6 +21,10 @@ Blender versions:
 -
 2.80, 2.81
 
+Version history:
+-
+[version_history](version_history.md)
+
 For Blender 2.7x version:
 -
 
