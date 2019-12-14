@@ -21,6 +21,10 @@ Blender versions:
 -
 2.80, 2.81
 
+Current versions:
+-
+1.1.0
+
 Version history:
 -
 [version_history](version_history.md)
