@@ -19,7 +19,7 @@ Usage
 
 Blender versions:
 -
-2.80, 2.81
+2.80, 2.81, 2.82, 2.83, 2.90
 
 Current versions:
 -
